@@ -1,0 +1,197 @@
+<html>
+<head>   
+    <script>
+        var myInput = document.getElementById("psw");
+var letter = document.getElementById("letter");
+var capital = document.getElementById("capital");
+var number = document.getElementById("number");
+var length = document.getElementById("length");
+
+// When the user clicks on the password field, show the message box
+myInput.onfocus = function() {
+  document.getElementById("message").style.display = "block";
+}
+
+// When the user clicks outside of the password field, hide the message box
+myInput.onblur = function() {
+  document.getElementById("message").style.display = "none";
+}
+
+// When the user starts to type something inside the password field
+myInput.onkeyup = function() {
+  // Validate lowercase letters
+  var lowerCaseLetters = /[a-z]/g;
+  if(myInput.value.match(lowerCaseLetters)) {  
+    letter.classList.remove("invalid");
+    letter.classList.add("valid");
+  } else {
+    letter.classList.remove("valid");
+    letter.classList.add("invalid");
+  }
+  
+  // Validate capital letters
+  var upperCaseLetters = /[A-Z]/g;
+  if(myInput.value.match(upperCaseLetters)) {  
+    capital.classList.remove("invalid");
+    capital.classList.add("valid");
+  } else {
+    capital.classList.remove("valid");
+    capital.classList.add("invalid");
+  }
+
+  // Validate numbers
+  var numbers = /[0-9]/g;
+  if(myInput.value.match(numbers)) {  
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }
+  
+  // Validate length
+  if(myInput.value.length >= 8) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+  }
+}
+
+    </script>
+    <style>
+   selection {
+  background-color: #b5e2e7;
+}
+
+::-moz-selection {
+  background-color: #8ac7d8;
+}
+
+body {
+  background: #3CC;
+}
+
+.container {
+  display: -webkit-flex;
+  display: flex;
+  height: 100%;
+}
+
+#logbox {
+  padding: 10px;
+  margin: 50px auto;
+  width: 340px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+
+h1 {
+  text-align: center;
+  font-size: 175%;
+  color: #757575;
+  font-weight: 300;
+}
+
+h1, input {
+  font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+.input {
+  width: 75%;
+  height: 50px;
+  display: block;
+  margin: 0 auto 15px;
+  padding: 0 15px;
+  border: none;
+  border-bottom: 2px solid #ebebeb;
+}
+.input:focus {
+  outline: none;
+  border-bottom-color: #3CC !important;
+}
+.input:hover {
+  border-bottom-color: #dcdcdc;
+}
+.input:invalid {
+  box-shadow: none;
+}
+
+.pass:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+.inputButton {
+     text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 2px 2px 2px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 0px solid #333333;
+  border-left: 1px solid #CCCCCC;
+  position: relative;
+  width: 55%;
+  height: 25px;
+  display: block;
+  margin: 30px auto 30px;
+  color: white;
+  background-color: #3CC;
+  border: none;
+  -webkit-box-shadow: 0 5px 0 #2CADAD;
+  -moz-box-shadow: 0 5px 0 #2CADAD;
+  box-shadow: 0 5px 0 #2CADAD;
+}
+.inputButton:hover {
+  top: 2px;
+  -webkit-box-shadow: 0 3px 0 #2CADAD;
+  -moz-box-shadow: 0 3px 0 #2CADAD;
+  box-shadow: 0 3px 0 #2CADAD;
+}
+.inputButton:active {
+  top: 0px;
+  box-shadow: none;
+    page-break-after: always;
+}
+
+    </style>
+    </head>
+    
+<!------ Include the above in your HEAD tag ---------->
+<body>
+  <div class="container" align="center">
+    <div class="col-md-6">
+    <div id="logbox" >
+      <form id="signup" method="post" a>
+        <h1>create an account</h1>
+        <input name="user[name]" type="text" placeholder="First name" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" class="input pass"/>
+           <input name="user[name]" type="text" placeholder="Last name" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" class="input pass"/>
+           <input name="user[name]" type="text" placeholder="Username" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" class="input pass"/>
+        <input name="user[password]" type="password" placeholder="Password" required="required" class="input pass"/>
+        <input name="user[password2]" type="password" placeholder="Confirm Password" required="required" class="input pass"/>
+        <input name="user[email]" type="email" placeholder="Email Address" class="input pass"/>
+    <div>
+          <a href="index.html" class="inputButton" align="text-center">Sign me up</a>
+        </div>
+        <div class="text-center">
+            already have an account? <a href="index.html" id="login_id">login</a>
+        </div>
+      </form>
+    </div>
+   </div>
+    <!--col-md-6-->
+    
+  
+        <div class="text-center"">
+                   
+                </div>
+      </form>
+    </div>
+    </div>
+  </div>
+ </body>
+
+</html>
